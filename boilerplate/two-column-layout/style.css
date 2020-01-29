@@ -1,0 +1,150 @@
+@import url(sanitize.css);
+
+:root{
+    --primary: #f9a711;
+    --secondary: #414042;
+
+    --gray: #505153;
+    --gray--lighter:#818181;
+    --white: white;    
+}
+
+p, h1, h2, h3{
+    margin: 0;
+}
+
+
+header{
+    width: 100%;
+    background-color: var(--secondary);
+    height: 60px;
+    display: flex;
+}
+
+.logo, nav, .search{
+    height: 100%;
+    position: relative;
+}
+
+.logo{
+    width: calc(100%/12 * 5);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary);
+    color: white;
+}
+
+nav{
+    width: calc(100%/12 * 3);
+    /* min-width: 100px; */
+    background-color: thistle;
+}
+
+.search{
+    width: calc(100%/12 * 4);
+    background-color: #fff;
+    display: flex;
+    
+}
+
+.search > *{
+    width: calc(100%/2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(87, 101, 226);
+    font-size: 0.6rem;
+}
+
+nav::after{
+    content:'Menu';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+nav::before{
+    content:'-';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -15%);
+}
+
+nav > .nav__link{
+    display: none;
+}
+
+footer{
+    background-color: var(--secondary);
+    padding: 50px 30px;
+}
+
+.footer__section{
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.footer__section--logos{
+    margin-bottom: 20px;
+    flex-direction: row;
+}
+
+.footer__logo{
+    width: calc(100%/5);
+    text-align: center;
+    align-items: center;
+    color: var(--white);
+    border: 1px dashed var(--white);
+}
+
+.footer__list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-heading, .footer__section-heading{
+    color: var(--white);
+    margin: 0 0 1rem 0;
+}
+
+.footer__list--item, .footer__link{
+    color: var(--white);
+}
+
+.footer__list--item > p{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__link--phone{
+    text-decoration: none;
+}
+
+.footer__section--end{
+
+}
+
+.divider{
+    padding: 0 0.5rem;
+    color: var(--white);
+}
+
+.btn{
+    /* display: flex; */
+    padding: 0.5rem 1rem;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+
+@supports (grid-area: auto) {
+header{
+    
+}
+}
