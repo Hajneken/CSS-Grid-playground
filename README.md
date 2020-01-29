@@ -7,3 +7,10 @@ This playground follows the awesome CSS Grid [tutorial](https://cssgrid.io/) by 
 You'll probably won't benefit much from just reading HTML, therefore ⬇:
 
 > See my [notes](https://coggle.it/diagram/XihIUpbiFQTy7Etd/t/-) in a visual way 👁
+
+
+## Boilerplate 
+
+Interested in my visual boilerplate?
+
+Then checkout [/boilerplate](./boilerplate) folder!

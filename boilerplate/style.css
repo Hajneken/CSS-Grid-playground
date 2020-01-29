@@ -1,0 +1,273 @@
+/* Overview
+
+1) reseting default styles using sanitize
+2) CSS that does not support CSS grid
+3) CSS that supports CSS grid 
+
+*/
+
+@import url(sanitize.css);
+
+/* Philosophy:
+1) Build accessible mobile-first layout without grid
+2) Use mobile-first layout as fallback for all browsers 
+3) Use @supports to detect grid 
+4) At breakpoints create layout with grid 
+https://www.youtube.com/watch?v=txZq7Laz7_4
+*/
+
+:root {
+  --padding: 15px;
+}
+
+article,
+section,
+section aside {
+  border-radius: 15px;
+}
+
+body {
+  background: black;
+}
+
+header {
+  background-color: darksalmon;
+  position: relative;
+  padding: var(--padding);
+}
+
+nav {
+  background: darkgreen;
+  padding: var(--padding);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+main {
+  background: burlywood;
+  padding: var(--padding);
+  position: relative;
+}
+
+section {
+  background: #ff825a;
+  position: relative;
+}
+
+article {
+  background: lightcoral;
+  padding: var(--padding);
+  position: relative;
+}
+
+aside {
+  background: deepskyblue;
+  padding: var(--padding);
+  position: relative;
+}
+
+footer {
+  background: gold;
+  padding: var(--padding);
+  position: relative;
+}
+
+/* Tags */
+
+header::after {
+  content: "header";
+  position: absolute;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  bottom: 2px;
+  border: 1px solid black;
+  right: 5px;
+  width: 50px;
+  height: 18px;
+  color: black;
+  background: white;
+}
+
+nav::after {
+  content: "nav";
+  position: absolute;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  top: 2px;
+  border: 1px solid black;
+  right: 5px;
+  width: 50px;
+  height: 18px;
+  color: black;
+  background: white;
+}
+
+main::after {
+  content: "main";
+  position: absolute;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  bottom: 2px;
+  border: 1px solid black;
+  right: 5px;
+  width: 50px;
+  height: 18px;
+  color: black;
+  background: white;
+}
+
+section::after {
+  content: "section";
+  position: absolute;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  top: 2px;
+  border: 1px solid black;
+  right: 5px;
+  width: 50px;
+  height: 18px;
+  color: black;
+  background: white;
+}
+
+article::after {
+  content: "article";
+  position: absolute;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  top: 2px;
+  border: 1px solid black;
+  right: 5px;
+  width: 50px;
+  height: 18px;
+  color: black;
+  background: white;
+}
+
+aside::after {
+  content: "aside";
+  position: absolute;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  top: 2px;
+  border: 1px solid black;
+  right: 5px;
+  width: 50px;
+  height: 18px;
+  color: black;
+  background: white;
+}
+
+footer::after {
+  content: "footer";
+  position: absolute;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  top: 2px;
+  border: 1px solid black;
+  right: 5px;
+  width: 50px;
+  height: 18px;
+  color: black;
+  background: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+p {
+  max-width: 480px;
+}
+
+.site {
+  margin: 0 1rem;
+  max-width: 800px;
+  background-color: rgb(41, 4, 4);
+}
+
+@media screen and (min-width: 820px) {
+  .site {
+    margin: 0 auto;
+  }
+}
+
+/* Better than 
+supports(display:grid)
+for historical grid used in IE and Edge
+*/
+
+@supports (grid-area: auto) {
+  @media screen and (min-width: 700px) {
+    .site-section {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-gap: 10px;
+    }
+    h1 {
+      grid-column: 1/-1;
+    }
+
+    article {
+      grid-column: 1/-1;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 40px 1fr;
+    }
+
+    h2 {
+      grid-column: 1/2;
+    }
+
+    p {
+      grid-column: 1/2;
+      margin: 0 0 1rem 0;
+    }
+
+    article aside {
+      grid-column: 2/-1;
+      grid-row: 1/-1;
+    }
+  }
+  /* 1630 */
+  @media screen and (min-width: 1200px) {
+    .site {
+      display: grid;
+      max-width: 1600px;
+      grid-template-columns: 2fr 1fr;
+    }
+
+    .site-header {
+      grid-column: 1/-1;
+    }
+
+    .site-main {
+      grid-column: 1/2;
+    }
+
+    main + aside {
+      grid-column: 2/-1;
+      border-radius: 15px;
+    }
+
+    footer {
+      grid-column: 1/-1;
+    }
+  }
+}
